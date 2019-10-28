@@ -1,19 +1,18 @@
 package util;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RandomGenerator {
     private final static int MAX_NUMBER = 10;
-    private final static int NUMBER_LENGTH = 3;
-    private static Random RANDOM = new Random();
-    public static HashSet<Integer> randomNumbers;
 
-    public static HashSet<Integer> generateRandomNumber () {
-        randomNumbers = new HashSet<>();
-        while(randomNumbers.size() != NUMBER_LENGTH){
-            randomNumbers.add(RANDOM.nextInt(MAX_NUMBER));
-            randomNumbers.remove(0);
+    public static List<Integer> generateRandomNumber() {
+        List<Integer> integerList = new ArrayList<>();
+        for(int i = 1; i < MAX_NUMBER; i++) {
+            integerList.add(i);
         }
-        return randomNumbers;
+        Collections.shuffle(integerList);
+        return integerList.subList(0,3);
     }
 }
